@@ -10,18 +10,18 @@
 
   <title>Select2 Tailwindcss Theme</title>
   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
-  <link href="css/v3/tailwind.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/erimicel/select2-tailwindcss-theme@1.2.4/dist/select2-tailwindcss-theme-plain.min.css" rel="stylesheet">
-  <link href="css/v3/select2-tailwindcss-theme-plain.min.css?v=1.2.4" rel="stylesheet">
+  <link href="css/v4/tailwind.css" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/gh/erimicel/select2-tailwindcss-theme@4.0.0/dist/select2-tailwindcss-theme-plain.min.css"
+    rel="stylesheet">
+  <link href="css/v4/select2-tailwindcss-theme-plain.min.css?v=4.0.0" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'selector',
-    }
-  </script>
+  <style>
+    @custom-variant dark (&:where(.dark, .dark *));
+  </style>
 
   <script>
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -76,15 +76,18 @@
 
       <!-- Single Ajax Select -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of single ajax select</label>
-        <select data-placeholder="Search for github repos" data-allow-clear="1" data-fetch="https://api.github.com/search/repositories">
+        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of single ajax
+          select</label>
+        <select data-placeholder="Search for github repos" data-allow-clear="1"
+          data-fetch="https://api.github.com/search/repositories">
           <option></option>
         </select>
       </div>
 
       <!-- Tags Select -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of dynamic option creation</label>
+        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of dynamic option
+          creation</label>
         <select multiple data-placeholder="Type anything" data-allow-clear="1" data-tags="1">
           <option>Alaska</option>
           <option>Hawaii</option>
@@ -121,7 +124,8 @@
 
       <!-- Multiple Disabled Select -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of disabled multiple select with selected items</label>
+        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of disabled multiple select
+          with selected items</label>
         <select disabled multiple>
           <option selected>Alaska</option>
           <option selected>Hawaii</option>
@@ -130,7 +134,8 @@
 
       <!-- Select with Optgroup -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of select with optgroup</label>
+        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of select with
+          optgroup</label>
         <select data-placeholder="Choose one thing" data-allow-clear="1">
           <option></option>
           <optgroup label="Group A">
@@ -148,9 +153,11 @@
 
       <!-- Input Group -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of input group (.input-group)</label>
+        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of input group
+          (.input-group)</label>
         <div class="flex input-group">
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Prepend</span>
+          <span
+            class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Prepend</span>
           <select data-placeholder="Choose one thing" data-allow-clear="1">
             <option></option>
             <option>1</option>
@@ -166,24 +173,28 @@
             <option>2</option>
             <option>3</option>
           </select>
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Append</span>
+          <span
+            class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Append</span>
         </div>
 
         <div class="flex mt-1 input-group">
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Prepend</span>
+          <span
+            class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Prepend</span>
           <select data-placeholder="Choose one thing" data-allow-clear="1">
             <option></option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
           </select>
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Append</span>
+          <span
+            class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Append</span>
         </div>
       </div>
 
       <!-- Validated Select -->
       <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of validated select (.is-valid, :invalid)</label>
+        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of validated select
+          (.is-valid, :invalid)</label>
         <select class="is-invalid" data-placeholder="Invalid example" data-allow-clear="1">
           <option></option>
         </select>
@@ -193,7 +204,7 @@
   </main>
 
   <footer class="my-12 text-center text-gray-600 dark:text-white">
-    <p class="text-sm">Select2 4.1.0-rc.0, TailwindCSS 3.4.17, jQuery 3.7.1</p>
+    <p class="text-sm">Select2 4.1.0-rc.0, TailwindCSS 4.0.0, jQuery 3.7.1</p>
   </footer>
 
   <script>
