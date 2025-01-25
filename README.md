@@ -44,7 +44,7 @@ import 'select2-tailwindcss-theme/dist/select2-tailwindcss-theme.min.css'; // Mi
 
 ```js
 $('select').select2({
-  theme: 'tailwindcss-3',
+  theme: 'tailwindcss-4',
 });
 ```
 
