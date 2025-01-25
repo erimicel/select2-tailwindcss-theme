@@ -4,7 +4,7 @@
   "description": "A Select2 theme for Tailwindcss",
   "main": "dist/select2-tailwindcss-theme.css",
   "scripts": {
-    "build": "sass src/select2-tailwindcss-theme.scss dist/select2-tailwindcss-theme.css --no-source-map",
+    "build": "cp src/select2-tailwindcss-theme.css dist/select2-tailwindcss-theme.css",
     "build:min": "MINIFY=true npx @tailwindcss/cli -i dist/select2-tailwindcss-theme.css -o dist/select2-tailwindcss-theme.min.css --minify",
     "build:plain": "VERBOSE=true npx @tailwindcss/cli -i dist/select2-tailwindcss-theme.css -o dist/select2-tailwindcss-theme-plain.css --verbose",
     "build:plain:min": "MINIFY=true VERBOSE=true npx @tailwindcss/cli -i dist/select2-tailwindcss-theme.css -o dist/select2-tailwindcss-theme-plain.min.css --verbose --minify",
@@ -39,7 +39,6 @@
   "homepage": "https://github.com/erimicel/select2-tailwindcss-theme#readme",
   "devDependencies": {
     "@tailwindcss/cli": "^4.0.0",
-    "sass": "^1.83.1",
     "tailwindcss": "^4.0.0"
   }
 }
