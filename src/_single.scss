@@ -40,7 +40,7 @@
 
 /* Focus styles for keyboard navigation */
 .select2-container--tailwindcss-3.select2-container--focus .select2-selection--single {
-  @apply ring-1 ring-indigo-600 border-indigo-600 outline-none;
+  @apply ring-1 ring-indigo-600 border-indigo-600 outline-hidden;
 }
 
 /* RTL Support */
