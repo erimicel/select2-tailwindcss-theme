@@ -1,6 +1,6 @@
 {
   "name": "select2-tailwindcss-theme",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A Select2 theme for Tailwindcss",
   "main": "dist/select2-tailwindcss-theme.css",
   "scripts": {
