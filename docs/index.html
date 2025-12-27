@@ -1,287 +1,395 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="A Select2 theme for Tailwindcss v3" />
+    <meta name="author" content="Erim Icel" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="A Select2 theme for Tailwindcss">
-  <meta name="author" content="Erim Icel">
+    <title>Select2 Tailwindcss v3 Theme</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
 
-  <title>Select2 Tailwindcss v3 Theme</title>
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,container-queries"></script>
+    <link href="css/tailwind.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/erimicel/select2-tailwindcss-theme@1.2.5/dist/select2-tailwindcss-theme-plain.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="css/select2-tailwindcss-theme-plain.min.css?v=1.2.5"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "selector",
+      };
+    </script>
 
-  <link href="css/tailwind.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/gh/erimicel/select2-tailwindcss-theme@1.2.4/dist/select2-tailwindcss-theme-plain.min.css" rel="stylesheet">
-  <link href="css/select2-tailwindcss-theme-plain.min.css?v=1.2.4" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'selector',
-    }
-  </script>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark"
+      );
+    </script>
+  </head>
 
-  <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    document.documentElement.classList.toggle('dark', localStorage.theme === 'dark');
-  </script>
-</head>
+  <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
+    <header class="py-4 text-white bg-blue-600 shadow dark:bg-blue-950">
+      <h1 class="text-xl font-bold text-center">
+        Select2 Tailwindcss v3 Theme Demo
+      </h1>
+    </header>
 
-<body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
+    <main
+      class="max-w-4xl p-6 mx-auto mt-8 bg-white rounded-lg shadow-lg dark:bg-slate-800"
+    >
+      <div class="flex flex-row flex-wrap justify-between">
+        <h2 class="mb-6 text-2xl font-semibold text-gray-800 dark:text-white">
+          Examples of
+          <a
+            href="https://github.com/erimicel/select2-tailwindcss-theme"
+            target="_blank"
+            class="text-blue-600"
+          >
+            @erimicel/select2-tailwindcss-theme
+          </a>
+        </h2>
 
-  <header class="py-4 text-white bg-blue-600 shadow dark:bg-blue-950">
-    <h1 class="text-xl font-bold text-center">Select2 Tailwindcss v3 Theme Demo</h1>
-  </header>
-
-  <main class="max-w-4xl p-6 mx-auto mt-8 bg-white rounded-lg shadow-lg dark:bg-slate-800">
-    <div class="flex flex-row flex-wrap justify-between">
-      <h2 class="mb-6 text-2xl font-semibold text-gray-800 dark:text-white">
-        Examples of
-        <a href="https://github.com/erimicel/select2-tailwindcss-theme" target="_blank" class="text-blue-600">
-          @erimicel/select2-tailwindcss-theme
-        </a>
-      </h2>
-
-      <div class="flex flex-row items-center mb-4 align-middle sm:mb-0">
-        <span class="mr-2 text-sm font-semibold text-gray-700 dark:text-white">Switch Dark Mode</span>
-        <button id="theme-toggle"
-          class="w-12 h-12 p-2 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-200 dark:bg-gray-700 dark:border-gray-800 dark:hover:bg-gray-600">
-          <svg class="block fill-violet-700 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-          <svg class="hidden fill-yellow-500 dark:block" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-              fill-rule="evenodd" clip-rule="evenodd"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <form class="space-y-4">
-      <!-- Single Select -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of single select</label>
-        <select data-placeholder="Choose one thing" data-allow-clear="1">
-          <option></option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-
-      <!-- Single Ajax Select -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of single ajax select</label>
-        <select data-placeholder="Search for github repos" data-allow-clear="1" data-fetch="https://api.github.com/search/repositories">
-          <option></option>
-        </select>
-      </div>
-
-      <!-- Tags Select -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of dynamic option creation</label>
-        <select multiple data-placeholder="Type anything" data-allow-clear="1" data-tags="1">
-          <option>Alaska</option>
-          <option>Hawaii</option>
-          <!-- Additional options omitted for brevity -->
-        </select>
-      </div>
-
-      <!-- Multiple Select -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of multiple select</label>
-        <select multiple data-placeholder="Choose anything" data-allow-clear="1">
-          <option>Alaska</option>
-          <option>Hawaii</option>
-          <!-- Additional options omitted for brevity -->
-        </select>
+        <div class="flex flex-row items-center mb-4 align-middle sm:mb-0">
+          <span class="mr-2 text-sm font-semibold text-gray-700 dark:text-white"
+            >Switch Dark Mode</span
+          >
+          <button
+            id="theme-toggle"
+            class="w-12 h-12 p-2 border border-gray-100 rounded-lg bg-gray-50 hover:bg-gray-200 dark:bg-gray-700 dark:border-gray-800 dark:hover:bg-gray-600"
+          >
+            <svg
+              class="block fill-violet-700 dark:hidden"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              ></path>
+            </svg>
+            <svg
+              class="hidden fill-yellow-500 dark:block"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
       </div>
 
-      <!-- Disabled Select -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of disabled select</label>
-        <select disabled data-placeholder="Cannot choose" data-allow-clear="1"></select>
-      </div>
-
-      <!-- Disabled option -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of disabled option</label>
-        <select data-placeholder="Cannot anything">
-          <option></option>
-          <option value="one">First</option>
-          <option value="two" disabled="disabled">Second (disabled)</option>
-          <option value="three">Third</option>
-        </select>
-      </div>
-
-      <!-- Multiple Disabled Select -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of disabled multiple select with selected items</label>
-        <select disabled multiple>
-          <option selected>Alaska</option>
-          <option selected>Hawaii</option>
-        </select>
-      </div>
-
-      <!-- Select with Optgroup -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of select with optgroup</label>
-        <select data-placeholder="Choose one thing" data-allow-clear="1">
-          <option></option>
-          <optgroup label="Group A">
-            <option>A1</option>
-            <option>A2</option>
-            <option>A3</option>
-          </optgroup>
-          <optgroup label="Group B">
-            <option>B1</option>
-            <option>B2</option>
-            <option>B3</option>
-          </optgroup>
-        </select>
-      </div>
-
-      <!-- Input Group -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of input group (.input-group)</label>
-        <div class="flex input-group">
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Prepend</span>
+      <form class="space-y-4">
+        <!-- Single Select -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of single select</label
+          >
           <select data-placeholder="Choose one thing" data-allow-clear="1">
             <option></option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
+            <option>4</option>
+            <option>5</option>
           </select>
         </div>
 
-        <div class="flex mt-1 input-group">
+        <!-- Single Ajax Select -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of single ajax select</label
+          >
+          <select
+            data-placeholder="Search for github repos"
+            data-allow-clear="1"
+            data-fetch="https://api.github.com/search/repositories"
+          >
+            <option></option>
+          </select>
+        </div>
+
+        <!-- Tags Select -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of dynamic option creation</label
+          >
+          <select
+            multiple
+            data-placeholder="Type anything"
+            data-allow-clear="1"
+            data-tags="1"
+          >
+            <option>Alaska</option>
+            <option>Hawaii</option>
+            <!-- Additional options omitted for brevity -->
+          </select>
+        </div>
+
+        <!-- Multiple Select -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of multiple select</label
+          >
+          <select
+            multiple
+            data-placeholder="Choose anything"
+            data-allow-clear="1"
+          >
+            <option>Alaska</option>
+            <option>Hawaii</option>
+            <!-- Additional options omitted for brevity -->
+          </select>
+        </div>
+
+        <!-- Disabled Select -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of disabled select</label
+          >
+          <select
+            disabled
+            data-placeholder="Cannot choose"
+            data-allow-clear="1"
+          ></select>
+        </div>
+
+        <!-- Disabled option -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of disabled option</label
+          >
+          <select data-placeholder="Cannot anything">
+            <option></option>
+            <option value="one">First</option>
+            <option value="two" disabled="disabled">Second (disabled)</option>
+            <option value="three">Third</option>
+          </select>
+        </div>
+
+        <!-- Multiple Disabled Select -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of disabled multiple select with selected items</label
+          >
+          <select disabled multiple>
+            <option selected>Alaska</option>
+            <option selected>Hawaii</option>
+          </select>
+        </div>
+
+        <!-- Select with Optgroup -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of select with optgroup</label
+          >
           <select data-placeholder="Choose one thing" data-allow-clear="1">
             <option></option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
+            <optgroup label="Group A">
+              <option>A1</option>
+              <option>A2</option>
+              <option>A3</option>
+            </optgroup>
+            <optgroup label="Group B">
+              <option>B1</option>
+              <option>B2</option>
+              <option>B3</option>
+            </optgroup>
           </select>
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Append</span>
         </div>
 
-        <div class="flex mt-1 input-group">
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Prepend</span>
-          <select data-placeholder="Choose one thing" data-allow-clear="1">
+        <!-- Input Group -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of input group (.input-group)</label
+          >
+          <div class="flex input-group">
+            <span
+              class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10"
+              >Prepend</span
+            >
+            <select data-placeholder="Choose one thing" data-allow-clear="1">
+              <option></option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+          </div>
+
+          <div class="flex mt-1 input-group">
+            <select data-placeholder="Choose one thing" data-allow-clear="1">
+              <option></option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            <span
+              class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10"
+              >Append</span
+            >
+          </div>
+
+          <div class="flex mt-1 input-group">
+            <span
+              class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10"
+              >Prepend</span
+            >
+            <select data-placeholder="Choose one thing" data-allow-clear="1">
+              <option></option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+            </select>
+            <span
+              class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10"
+              >Append</span
+            >
+          </div>
+        </div>
+
+        <!-- Validated Select -->
+        <div>
+          <label
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of validated select (.is-valid, :invalid)</label
+          >
+          <select
+            class="is-invalid"
+            data-placeholder="Invalid example"
+            data-allow-clear="1"
+          >
             <option></option>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
           </select>
-          <span class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-r-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10">Append</span>
+          <p class="mt-2 text-sm text-red-500">Something is wrong.</p>
         </div>
-      </div>
+      </form>
+    </main>
 
-      <!-- Validated Select -->
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-white">Example of validated select (.is-valid, :invalid)</label>
-        <select class="is-invalid" data-placeholder="Invalid example" data-allow-clear="1">
-          <option></option>
-        </select>
-        <p class="mt-2 text-sm text-red-500">Something is wrong.</p>
-      </div>
-    </form>
-  </main>
+    <footer class="my-12 text-center text-gray-600 dark:text-white">
+      <p class="text-sm">
+        Select2 4.1.0-rc.0, TailwindCSS 3.4.17, jQuery 3.7.1
+      </p>
+    </footer>
 
-  <footer class="my-12 text-center text-gray-600 dark:text-white">
-    <p class="text-sm">Select2 4.1.0-rc.0, TailwindCSS 3.4.17, jQuery 3.7.1</p>
-  </footer>
+    <script>
+      $(function () {
+        // Toggle dark mode
+        document
+          .getElementById("theme-toggle")
+          .addEventListener("click", () => {
+            localStorage.theme =
+              localStorage.theme === "dark" ? "light" : "dark";
 
-  <script>
-    $(function () {
-      // Toggle dark mode
-      document.getElementById('theme-toggle').addEventListener('click', () => {
-        localStorage.theme = localStorage.theme === 'dark' ? 'light' : 'dark';
+            // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+            document.documentElement.classList.toggle(
+              "dark",
+              localStorage.theme === "dark" ||
+                (!("theme" in localStorage) &&
+                  window.matchMedia("(prefers-color-scheme: dark)").matches)
+            );
 
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-        document.documentElement.classList.toggle(
-          'dark',
-          localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-        );
+            console.log(localStorage.theme);
+          });
 
-        console.log(localStorage.theme);
-      });
-
-      // Select2 init
-      $('select').each(function () {
-        let options = {
-          theme: 'tailwindcss-3',
-          width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-full') ? '100%' : 'style',
-          placeholder: $(this).data('placeholder') || 'Select an option',
-          allowClear: Boolean($(this).data('allow-clear')),
-          closeOnSelect: !$(this).attr('multiple'),
-          tags: Boolean($(this).data('tags')),
-        };
-
-        if ($(this).data('fetch')) {
-          options = {
-            ...options,
-            ajax: {
-              url: $(this).data('fetch'),
-              dataType: 'json',
-              delay: 250,
-              data: function (params) {
-                return {
-                  q: params.term, // search term
-                  page: params.page
-                };
-              },
-              processResults: function (data, params) {
-                // parse the results into the format expected by Select2
-                // since we are using custom formatting functions we do not need to
-                // alter the remote JSON data, except to indicate that infinite
-                // scrolling can be used
-                params.page = params.page || 1;
-
-                return {
-                  results: data.items,
-                  pagination: {
-                    more: (params.page * 30) < data.total_count
-                  }
-                };
-              },
-              cache: true
-            },
-            minimumInputLength: 1,
-            templateResult: formatRepo,
-            templateSelection: formatRepoSelection
+        // Select2 init
+        $("select").each(function () {
+          let options = {
+            theme: "tailwindcss-3",
+            width: $(this).data("width")
+              ? $(this).data("width")
+              : $(this).hasClass("w-full")
+              ? "100%"
+              : "style",
+            placeholder: $(this).data("placeholder") || "Select an option",
+            allowClear: Boolean($(this).data("allow-clear")),
+            closeOnSelect: !$(this).attr("multiple"),
+            tags: Boolean($(this).data("tags")),
           };
+
+          if ($(this).data("fetch")) {
+            options = {
+              ...options,
+              ajax: {
+                url: $(this).data("fetch"),
+                dataType: "json",
+                delay: 250,
+                data: function (params) {
+                  return {
+                    q: params.term, // search term
+                    page: params.page,
+                  };
+                },
+                processResults: function (data, params) {
+                  // parse the results into the format expected by Select2
+                  // since we are using custom formatting functions we do not need to
+                  // alter the remote JSON data, except to indicate that infinite
+                  // scrolling can be used
+                  params.page = params.page || 1;
+
+                  return {
+                    results: data.items,
+                    pagination: {
+                      more: params.page * 30 < data.total_count,
+                    },
+                  };
+                },
+                cache: true,
+              },
+              minimumInputLength: 1,
+              templateResult: formatRepo,
+              templateSelection: formatRepoSelection,
+            };
+          }
+
+          $(this).select2(options);
+        });
+
+        function formatRepo(repo) {
+          if (repo.loading) {
+            return repo.text;
+          }
+
+          var $container = $(
+            "<div class='flex'>" +
+              "<div class='text-base sm:text-sm/6 dark:text-white select2-result-repository__title'></div>" +
+              "</div>"
+          );
+
+          $container
+            .find(".select2-result-repository__title")
+            .text(repo.full_name);
+
+          return $container;
         }
 
-        $(this).select2(options);
+        function formatRepoSelection(repo) {
+          return repo.full_name || repo.text;
+        }
       });
-
-      function formatRepo(repo) {
-        if (repo.loading) {
-          return repo.text;
-        }
-
-        var $container = $(
-          "<div class='flex'>" +
-          "<div class='text-base sm:text-sm/6 dark:text-white select2-result-repository__title'></div>" +
-          "</div>"
-        );
-
-        $container.find(".select2-result-repository__title").text(repo.full_name);
-
-        return $container;
-      }
-
-      function formatRepoSelection(repo) {
-        return repo.full_name || repo.text;
-      }
-    });
-  </script>
-
-</body>
-
+    </script>
+  </body>
 </html>

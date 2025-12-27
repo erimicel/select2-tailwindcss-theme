@@ -1,52 +1,54 @@
-/* Multiple selection */
-.select2-container--tailwindcss-3 .select2-selection--multiple {
-  @apply min-h-[2.25rem] h-auto rounded-md text-base sm:text-sm/6 bg-white py-1.5 px-3 border border-gray-300 cursor-default dark:bg-white/5 dark:text-white dark:border-white/10;
-}
+@layer components {
+  /* Multiple selection */
+  .select2-container--tailwindcss-3 .select2-selection--multiple {
+    @apply min-h-[2.25rem] h-auto rounded-md text-base sm:text-sm/6 bg-white py-1.5 px-3 border border-gray-300 cursor-default dark:bg-white/5 dark:text-white dark:border-white/10;
+  }
 
-/* Multiple selection list */
-.select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__rendered {
-  @apply flex flex-row flex-wrap gap-2 m-0 p-0 list-none;
-}
+  /* Multiple selection list */
+  .select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__rendered {
+    @apply flex flex-row flex-wrap gap-2 m-0 p-0 list-none;
+  }
 
-/* Multiple selection choices */
-.select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__choice {
-  @apply inline-flex items-center rounded-md bg-indigo-100 px-2.5 py-0.5 text-base sm:text-sm/6 font-medium text-indigo-800;
-}
+  /* Multiple selection choices */
+  .select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__choice {
+    @apply inline-flex items-center rounded-md bg-indigo-100 px-2.5 py-0.5 text-base sm:text-sm/6 font-medium text-indigo-800;
+  }
 
-/* Remove button */
-.select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__choice__remove {
-  @apply -ml-1 mr-1.5 h-4 w-4 pb-[0.10rem] items-center flex justify-center rounded-full text-indigo-600 hover:bg-blue-200 hover:text-indigo-900;
-}
+  /* Remove button */
+  .select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__choice__remove {
+    @apply -ml-1 mr-1.5 h-4 w-4 pb-[0.10rem] items-center flex justify-center rounded-full text-indigo-600 hover:bg-blue-200 hover:text-indigo-900;
+  }
 
-/* Search field in multiple selection */
-.select2-container--tailwindcss-3 .select2-selection--multiple .select2-search--inline {
-  @apply block;
-}
+  /* Search field in multiple selection */
+  .select2-container--tailwindcss-3 .select2-selection--multiple .select2-search--inline {
+    @apply block;
+  }
 
-.select2-container--tailwindcss-3 .select2-selection--multiple .select2-search--inline .select2-search__field {
-  @apply h-[1.5rem] p-0 m-0 text-base sm:text-sm/6 bg-transparent border-0 focus:outline-none focus:ring-0 dark:placeholder:text-gray-500 placeholder:text-gray-400;
-}
+  .select2-container--tailwindcss-3 .select2-selection--multiple .select2-search--inline .select2-search__field {
+    @apply h-[1.5rem] p-0 m-0 text-base sm:text-sm/6 bg-transparent border-0 focus:outline-none focus:ring-0 dark:placeholder:text-gray-500 placeholder:text-gray-400;
+  }
 
-/* Disabled state */
-.select2-container--tailwindcss-3.select2-container--disabled .select2-selection--multiple {
-  @apply text-gray-500 cursor-not-allowed bg-gray-50 border-gray-200 dark:bg-white/20 dark:border-white/5;
-}
+  /* Disabled state */
+  .select2-container--tailwindcss-3.select2-container--disabled .select2-selection--multiple {
+    @apply text-gray-500 cursor-not-allowed bg-gray-50 border-gray-200 dark:bg-white/20 dark:border-white/5;
+  }
 
-.select2-container--tailwindcss-3.select2-container--disabled.select2-container--focus .select2-selection--multiple {
-  @apply ring-0 border-gray-200 dark:border-white/5;
-}
+  .select2-container--tailwindcss-3.select2-container--disabled.select2-container--focus .select2-selection--multiple {
+    @apply ring-0 border-gray-200 dark:border-white/5;
+  }
 
-/* Clearable state */
-.select2-container--tailwindcss-3 .select2-selection--multiple.select2-selection--clearable {
-  @apply pr-4;
-}
+  /* Clearable state */
+  .select2-container--tailwindcss-3 .select2-selection--multiple.select2-selection--clearable {
+    @apply pr-4;
+  }
 
-/* Clear button */
-.select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__clear {
-  @apply font-bold absolute inset-y-0 right-0 flex items-center pr-4 text-base sm:text-sm/6 text-gray-400 cursor-pointer hover:text-gray-700;
-}
+  /* Clear button */
+  .select2-container--tailwindcss-3 .select2-selection--multiple .select2-selection__clear {
+    @apply font-bold absolute inset-y-0 right-0 flex items-center pr-4 text-base sm:text-sm/6 text-gray-400 cursor-pointer hover:text-gray-700;
+  }
 
-/* Focus styles for keyboard navigation */
-.select2-container--tailwindcss-3.select2-container--focus .select2-selection--multiple {
-  @apply ring-1 ring-indigo-600 border-indigo-600 outline-none;
+  /* Focus styles for keyboard navigation */
+  .select2-container--tailwindcss-3.select2-container--focus .select2-selection--multiple {
+    @apply ring-1 ring-indigo-600 border-indigo-600 outline-none;
+  }
 }

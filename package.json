@@ -4,7 +4,7 @@
   "description": "A Select2 theme for Tailwindcss",
   "main": "dist/select2-tailwindcss-theme.css",
   "scripts": {
-    "build": "sass src/select2-tailwindcss-theme.scss dist/select2-tailwindcss-theme.css --no-source-map",
+    "build": "sass --style=compressed src/select2-tailwindcss-theme.scss dist/select2-tailwindcss-theme.css --no-source-map",
     "build:min": "MINIFY=true npx postcss dist/select2-tailwindcss-theme.css -o dist/select2-tailwindcss-theme.min.css --verbose",
     "build:plain": "VERBOSE=true npx tailwindcss -i dist/select2-tailwindcss-theme.css -o dist/select2-tailwindcss-theme-plain.css --verbose",
     "build:plain:min": "MINIFY=true VERBOSE=true npx postcss dist/select2-tailwindcss-theme.css -o dist/select2-tailwindcss-theme-plain.min.css --verbose",
