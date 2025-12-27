@@ -39,6 +39,11 @@
     @apply font-bold absolute inset-y-0 right-0 flex items-center pr-[2rem] text-base sm:text-sm/6 text-gray-400 cursor-pointer hover:text-gray-700;
   }
 
+  /* Hide clear button when disabled */
+  .select2-container--tailwindcss-3.select2-container--disabled .select2-selection--single .select2-selection__clear {
+    @apply hidden;
+  }
+
   /* Focus styles for keyboard navigation */
   .select2-container--tailwindcss-3.select2-container--focus .select2-selection--single {
     @apply ring-1 ring-indigo-600 border-indigo-600 outline-none;

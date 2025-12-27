@@ -98,10 +98,11 @@
         <!-- Single Select -->
         <div>
           <label
+            for="example-single"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of single select</label
           >
-          <select data-placeholder="Choose one thing" data-allow-clear="1">
+          <select id="example-single" data-placeholder="Choose one thing" data-allow-clear="1">
             <option></option>
             <option>1</option>
             <option>2</option>
@@ -114,10 +115,12 @@
         <!-- Single Ajax Select -->
         <div>
           <label
+            for="example-single-ajax"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of single ajax select</label
           >
           <select
+            id="example-single-ajax"
             data-placeholder="Search for github repos"
             data-allow-clear="1"
             data-fetch="https://api.github.com/search/repositories"
@@ -129,10 +132,12 @@
         <!-- Tags Select -->
         <div>
           <label
+            for="example-tags"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of dynamic option creation</label
           >
           <select
+            id="example-tags"
             multiple
             data-placeholder="Type anything"
             data-allow-clear="1"
@@ -147,10 +152,12 @@
         <!-- Multiple Select -->
         <div>
           <label
+            for="example-multiple"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of multiple select</label
           >
           <select
+            id="example-multiple"
             multiple
             data-placeholder="Choose anything"
             data-allow-clear="1"
@@ -164,23 +171,44 @@
         <!-- Disabled Select -->
         <div>
           <label
+            for="example-disabled"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of disabled select</label
           >
           <select
+            id="example-disabled"
             disabled
             data-placeholder="Cannot choose"
             data-allow-clear="1"
           ></select>
         </div>
 
+        <!-- Disabled Select with selected items-->
+        <div>
+          <label
+            for="example-disabled-selected"
+            class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
+            >Example of disabled select with selected items</label
+          >
+          <select
+            id="example-disabled-selected"
+            disabled
+            data-placeholder="Cannot choose"
+            data-allow-clear="1"
+          >
+            <option selected>Alaska</option>
+            <option>Hawaii</option>
+          </select>
+        </div>
+
         <!-- Disabled option -->
         <div>
           <label
+            for="example-disabled-option"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of disabled option</label
           >
-          <select data-placeholder="Cannot anything">
+          <select id="example-disabled-option" data-placeholder="Cannot anything">
             <option></option>
             <option value="one">First</option>
             <option value="two" disabled="disabled">Second (disabled)</option>
@@ -191,10 +219,11 @@
         <!-- Multiple Disabled Select -->
         <div>
           <label
+            for="example-disabled-multiple"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of disabled multiple select with selected items</label
           >
-          <select disabled multiple>
+          <select id="example-disabled-multiple" disabled multiple>
             <option selected>Alaska</option>
             <option selected>Hawaii</option>
           </select>
@@ -203,10 +232,11 @@
         <!-- Select with Optgroup -->
         <div>
           <label
+            for="example-optgroup"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of select with optgroup</label
           >
-          <select data-placeholder="Choose one thing" data-allow-clear="1">
+          <select id="example-optgroup" data-placeholder="Choose one thing" data-allow-clear="1">
             <option></option>
             <optgroup label="Group A">
               <option>A1</option>
@@ -224,6 +254,8 @@
         <!-- Input Group -->
         <div>
           <label
+            id="label-input-group"
+            for="example-input-group-prepend"
             class="block mb-2 text-sm font-medium text-gray-700 dark:text-white"
             >Example of input group (.input-group)</label
           >
@@ -232,7 +264,7 @@
               class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10"
               >Prepend</span
             >
-            <select data-placeholder="Choose one thing" data-allow-clear="1">
+            <select id="example-input-group-prepend" aria-labelledby="label-input-group" data-placeholder="Choose one thing" data-allow-clear="1">
               <option></option>
               <option>1</option>
               <option>2</option>
@@ -241,7 +273,7 @@
           </div>
 
           <div class="flex mt-1 input-group">
-            <select data-placeholder="Choose one thing" data-allow-clear="1">
+            <select id="example-input-group-append" aria-labelledby="label-input-group" data-placeholder="Choose one thing" data-allow-clear="1">
               <option></option>
               <option>1</option>
               <option>2</option>
@@ -258,7 +290,7 @@
               class="flex items-center px-3 text-base text-gray-500 bg-white border border-gray-300 shrink-0 rounded-l-md sm:text-sm/6 dark:bg-white/5 dark:text-white dark:border-white/10"
               >Prepend</span
             >
-            <select data-placeholder="Choose one thing" data-allow-clear="1">
+            <select id="example-input-group-both" aria-labelledby="label-input-group" data-placeholder="Choose one thing" data-allow-clear="1">
               <option></option>
               <option>1</option>
               <option>2</option>
