@@ -5,7 +5,7 @@
 
 /* Dropdown */
 .select2-container--tailwindcss-3.select2-container--open .select2-dropdown {
-  @apply w-full py-1 mt-1 overflow-auto text-base bg-white border-none rounded-md shadow-lg max-h-60 ring-1 ring-black/5 ring-opacity-5 focus:outline-none sm:text-sm dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-600 dark:focus:border-indigo-600;
+  @apply w-full py-1 mt-1 overflow-auto text-base bg-white border-none rounded-md shadow-lg max-h-60 ring-1 ring-black/5 focus:outline-none sm:text-sm dark:bg-gray-700 dark:text-white;
 }
 
 /* Dropdown position */
@@ -34,7 +34,7 @@
 
 /* Disabled option items */
 .select2-container--tailwindcss-3 .select2-results__option--disabled {
-  @apply text-gray-500 cursor-not-allowed bg-gray-50 border-gray-200 dark:bg-white/10 dark:border-white/5;
+  @apply text-gray-500 cursor-not-allowed bg-gray-50 dark:bg-white/10;
 }
 
 /* Hover state */
@@ -68,6 +68,11 @@
 }
 
 /* Input groups */
+/* Grow to fill the flex row so the control width stays stable instead of shrinking to the selected option */
+.input-group > .select2-container--tailwindcss-3 {
+  @apply flex-1 min-w-0;
+}
+
 .input-group > * + select + .select2-container--tailwindcss-3 .select2-selection {
   @apply rounded-l-none border-l-0;
 }
@@ -96,7 +101,7 @@ select:invalid ~ .select2-container--tailwindcss-3 {
   .select2-selection {
     @apply border-red-500 text-red-900;
   }
-  .select2-container--focus {
+  &.select2-container--focus .select2-selection {
     @apply ring-red-500 border-red-500 #{!important};
   }
   .select2-selection__placeholder {

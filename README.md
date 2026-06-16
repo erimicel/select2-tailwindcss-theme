@@ -18,6 +18,19 @@ Demo: https://erimicel.github.io/select2-tailwindcss-v4-theme/
 
 Repo: https://github.com/erimicel/select2-tailwindcss-v4-theme
 
+## Features
+
+- Single & multiple select
+- Searchable dropdowns and AJAX / remote data
+- Tags (dynamic option creation)
+- Option groups (`<optgroup>`)
+- Clearable selects (`allowClear`)
+- Disabled selects and disabled options
+- Validation / error states (`.is-invalid`, `:invalid`, `.field_with_errors`)
+- Input groups (`.input-group`)
+- Dark mode (`darkMode: "selector"`)
+- RTL support (`dir="rtl"`)
+
 ## 📦 Installation
 
 ### CDN
@@ -48,11 +61,7 @@ $ yarn add select2-tailwindcss-theme
 
 ## Usage
 
-```js
-import "select2-tailwindcss-theme/dist/select2-tailwindcss-theme.css"; // Regular version
-// OR
-import "select2-tailwindcss-theme/dist/select2-tailwindcss-theme.min.css"; // Minified version
-```
+Initialize Select2 with the `tailwindcss-3` theme:
 
 ```js
 $("select").select2({
@@ -60,7 +69,30 @@ $("select").select2({
 });
 ```
 
+The stylesheet ships in two flavors — pick the one that matches your setup:
+
+| File | When to use |
+| --- | --- |
+| `select2-tailwindcss-theme-plain.min.css` | **Standalone** — pre-compiled, drop-in CSS. No Tailwind build required (this is also what the CDN serves). |
+| `select2-tailwindcss-theme.css` / `.min.css` | **With Tailwind in your build** — these contain `@apply` directives that your Tailwind/PostCSS pipeline resolves at build time. |
+
+### Standalone (no Tailwind build)
+
+Import the pre-compiled stylesheet directly:
+
+```js
+import "select2-tailwindcss-theme/dist/select2-tailwindcss-theme-plain.min.css";
+```
+
 ### With tailwindcss config
+
+Import the source stylesheet and let your Tailwind build resolve it:
+
+```js
+import "select2-tailwindcss-theme/dist/select2-tailwindcss-theme.css"; // Regular version
+// OR
+import "select2-tailwindcss-theme/dist/select2-tailwindcss-theme.min.css"; // Minified version
+```
 
 Update your Tailwind configuration to include the package in the content array:
 
@@ -78,7 +110,7 @@ module.exports = {
 };
 ```
 
-Enable to dark mode by `dark` class toggle:
+Enable dark mode by `dark` class toggle:
 
 ```js
 // tailwind.config.js
@@ -86,6 +118,24 @@ module.exports = {
   // The selector strategy replaced the class strategy in Tailwind CSS v3.4.1.
   darkMode: "selector",
 };
+```
+
+### States & layouts
+
+The theme also styles a few common states and layouts:
+
+```html
+<!-- Validation / error state: add .is-invalid to the <select> (or use :invalid / Rails .field_with_errors) -->
+<select class="is-invalid"> ... </select>
+
+<!-- Input group: wrap a flex row with .input-group -->
+<div class="flex input-group">
+  <span> ... </span>
+  <select> ... </select>
+</div>
+
+<!-- RTL: set dir="rtl" on the select -->
+<select dir="rtl"> ... </select>
 ```
 
 ## Development
